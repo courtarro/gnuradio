@@ -124,14 +124,14 @@ namespace gr {
     // If we rounded-up a whole bunch, give the user a heads up.
     // This only happens if sizeof_item is not a power of two.
 
-    if(nitems > 2 * orig_nitems && nitems * (int) sizeof_item > granularity){
+    /* if(nitems > 2 * orig_nitems && nitems * (int) sizeof_item > granularity){
       std::cerr << "gr::buffer::allocate_buffer: warning: tried to allocate\n"
                 << "   " << orig_nitems << " items of size "
                 << sizeof_item << ". Due to alignment requirements\n"
                 << "   " << nitems << " were allocated.  If this isn't OK, consider padding\n"
                 << "   your structure to a power-of-two bytes.\n"
                 << "   On this platform, our allocation granularity is " << granularity << " bytes.\n";
-    }
+    } */
 
     d_bufsize = nitems;
     d_vmcircbuf = gr::vmcircbuf_sysconfig::make(d_bufsize * d_sizeof_item);
